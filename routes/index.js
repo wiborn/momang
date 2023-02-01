@@ -1,11 +1,11 @@
 const { Router } = require('express');
-const { SuccessResponseObject } = require('../common/http');
+const { SuccessResponseObject, ErrorResponseObject } = require('../common/http');
 const demo = require('./demo.route');
 
 const r = Router();
 
 r.use('/demo', demo);
 
-r.get('/', (req, res) => res.json(new SuccessResponseObject('express vercel boiler plate')));
+r.get('/', (req, res) => res.status(404).end());
 
 module.exports = r;
